@@ -12,16 +12,16 @@ public class SnakeAndLadderGame {
         int player1Position = 0;
         System.out.println("Player1 at Start Position Zero");
 
-//UC2: Using RANDOM to get the number between 1 - 6.
-
 //UC4: Player reaches the winning position 100.
         boolean currentTurn = true;
         int winningPosition = 100;
+        int count = 0;
 
         while (player1Position != winningPosition) {
 
             if (currentTurn == true) {
 
+//UC2: Using RANDOM to get the number between 1 - 6.
                 Random random = new Random();
                 int dice = random.nextInt(6) + 1;
                 System.out.println("Player1 rolls the die to get a number : " + dice);
@@ -44,9 +44,12 @@ public class SnakeAndLadderGame {
                         player1Position -= dice;
                         break;
                 }
+                count++;
+
                 if (player1Position < 0 ) {
                     player1Position = 0;
                 }
+
 //UC5: Player gets to exact winning position 100.
                 if (player1Position > winningPosition) {
                     player1Position -= dice;
@@ -54,8 +57,10 @@ public class SnakeAndLadderGame {
                 }
             }
         }
+        System.out.println();
         System.out.println("* Player1 reaches the Winning Position *");
 
-
+//UC6: Number of times the dice was played to win the game.
+        System.out.println("Number of Times the Dice was played to win the Game : "+count);
     }
 }
