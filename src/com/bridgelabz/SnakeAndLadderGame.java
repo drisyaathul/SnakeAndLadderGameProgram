@@ -47,6 +47,11 @@ public class SnakeAndLadderGame {
                 if (player1Position < 0 ) {
                     player1Position = 0;
                 }
+//UC5: Player gets to exact winning position 100.
+                if (player1Position > winningPosition) {
+                    player1Position -= dice;
+                    System.out.println("Player1 stays in the SamePosition : "+(player1Position));
+                }
             }
         }
         System.out.println("* Player1 reaches the Winning Position *");
